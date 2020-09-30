@@ -18,12 +18,5 @@
     @include('layouts.footer')
 
     @php wp_footer() @endphp
-
-    {{-- include spritemap --}}
-    @if( $sprite_path )
-      <div class="spritemap" aria-hidden="true">
-        @php(include_once($sprite_path))
-      </div>
-    @endif
   </body>
 </html>

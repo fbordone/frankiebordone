@@ -6,7 +6,6 @@ const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
-const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const desire = require('./util/desire');
@@ -177,12 +176,6 @@ let webpackConfig = {
       options: {
         eslint: { failOnWarning: false, failOnError: true },
       },
-    }),
-    new SVGSpritemapPlugin({
-      src: `${config.paths.assets}/**/*.svg`,
-      svgo: false,
-      prefix: '',
-      filename: ( config.enabled.optimize ? 'spritemap_[hash].svg' : 'spritemap.svg' ),
     }),
     new StyleLintPlugin({
       failOnError: !config.enabled.watcher,
