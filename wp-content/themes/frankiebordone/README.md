@@ -47,7 +47,7 @@ themes/frankiebordone/         # → Root of Sage based theme
 ### Theme development
 
 1. Spin up your local development server (via Vagrant/VVV, etc.).
-2. Navigate to the `[theme-name-here]` theme directory, and run:
+2. Navigate to the `frankiebordone` theme directory, and run:
     - `composer install`
     - `yarn`
 3. Clone `resources/assets/config.json` as `config-local.json` if you'd like to modify:
