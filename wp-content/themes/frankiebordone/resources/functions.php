@@ -14,7 +14,7 @@ use Roots\Sage\Container;
  * @param string $title
  */
 $theme_error = function ($message, $subtitle = '', $title = '') {
-    $title = $title ?: __('Theme &rsaquo; Error', 'sage');
+    $title = $title ?: __('Theme &rsaquo; Error', 'frankiebordone');
     $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
     wp_die($message, $title);
@@ -24,14 +24,14 @@ $theme_error = function ($message, $subtitle = '', $title = '') {
  * Ensure compatible version of PHP is used
  */
 if (version_compare('7.1', phpversion(), '>=')) {
-    $theme_error(__('You must be using PHP 7.1 or greater.', 'sage'), __('Invalid PHP version', 'sage'));
+    $theme_error(__('You must be using PHP 7.1 or greater.', 'frankiebordone'), __('Invalid PHP version', 'frankiebordone'));
 }
 
 /**
  * Ensure compatible version of WordPress is used
  */
 if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
-    $theme_error(__('You must be using WordPress 4.7.0 or greater.', 'sage'), __('Invalid WordPress version', 'sage'));
+    $theme_error(__('You must be using WordPress 4.7.0 or greater.', 'frankiebordone'), __('Invalid WordPress version', 'frankiebordone'));
 }
 
 /**
@@ -40,8 +40,8 @@ if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
 if (!class_exists('Roots\\Sage\\Container')) {
     if (!file_exists($composer = __DIR__.'/../vendor/autoload.php')) {
         $theme_error(
-            __('You must run <code>composer install</code> from the Sage directory.', 'sage'),
-            __('Autoloader not found.', 'sage')
+            __('You must run <code>composer install</code> from the Sage directory.', 'frankiebordone'),
+            __('Autoloader not found.', 'frankiebordone')
         );
     }
     require_once $composer;
@@ -56,7 +56,7 @@ if (!class_exists('Roots\\Sage\\Container')) {
 array_map(function ($file) use ($theme_error) {
     $file = "../app/{$file}.php";
     if (!locate_template($file, true, true)) {
-        $theme_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
+        $theme_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'frankiebordone'), $file), 'File not found');
     }
 }, ['helpers', 'setup', 'filters']);
 
