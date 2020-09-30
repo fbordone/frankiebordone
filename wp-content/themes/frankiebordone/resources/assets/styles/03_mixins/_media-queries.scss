@@ -1,0 +1,63 @@
+/* ==============================================================================================
+
+// MEDIA QUERY MIXIN
+
+================================================================================================= */
+
+/**
+ * Returns a min-width media query
+ *
+ * @param   {Map}                 $conf     Input arguments
+ *
+ *   @type  {String}              device    Can be 'custom' or defined within `$breakpoints` map in config file
+ *   @type  {String|Number}       size      If device is 'custom', this is an em value. Otherwise it can be 'sm', 'md', or 'lg'
+ *
+ * @return                        Min-width media query
+ */
+@mixin min-width( $conf: () ) {
+
+  // merge default arguments
+  $conf: map-merge(
+    (
+      device: null,
+      size: md
+    ),
+    $conf
+  );
+
+  // warn if `$breakpoints` map is not defined
+  @if not variable-exists(breakpoints) {
+    @warn "`$breakpoints` map is not defined globally.";
+  }
+
+  // collect media query width based on parameters
+  $device: map-get($conf, device);
+  $size: map-get($conf, size);
+
+  // custom media query size
+  $width: null;
+
+  @if not is-null($device) and $device == 'custom' and is-em($size) {
+    $width: #{$size};
+  }
+
+  // predefined breakpoint size
+  @else if map-has-key($breakpoints, $device) and map-has-key(map-get($breakpoints, $device), $size) {
+    $width: #{map-get(map-get($breakpoints, $device), $size)};
+  }
+
+  @else {
+    @warn "Mixin arguments configured incorrectly. Please review source code.";
+  }
+
+  // if width exists in em, output media-query
+  @if variable-exists(width) {
+    @media all and (min-width: #{$width}) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Only use `em` values for defining media queries.";
+  }
+}

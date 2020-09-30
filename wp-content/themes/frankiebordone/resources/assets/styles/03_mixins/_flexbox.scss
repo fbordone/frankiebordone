@@ -1,0 +1,82 @@
+/* ==============================================================================================
+
+// FLEX LAYOUTS
+
+================================================================================================= */
+
+/**
+* Default flex container stylings
+*
+* @param   {Map}       $conf   Optional input arguments
+*
+*   @type  {String}    flex         Defines `display` property (defaults to 'flex')
+*   @type  {String}    direction    Defines `flex-direction` property (defaults to 'row')
+*   @type  {String}    wrap         Defines the `flex-wrap` property (defaults to 'nowrap')
+*   @type  {String}    justify      Defines the `justify-content` property (defaults to 'space-between')
+*   @type  {String}    align        Defines the `align-items` property (defaults to 'center')
+*/
+@mixin flex-container( $conf: () ) {
+  // merge defaults with passed arguments
+  $conf: map-merge(
+    (
+      flex: flex,
+      direction: null,
+      wrap: null,
+      justify: space-between,
+      align: center
+    ),
+    $conf
+  );
+
+  // output css
+  $flex: map-get($conf, flex);
+
+  @if $flex == 'flex' or $flex == 'inline-flex' {
+    display: #{$flex};
+  }
+
+  $direction: map-get($conf, direction);
+
+  @if not is-null($direction) {
+    flex-direction: #{$direction};
+  }
+
+  $wrap: map-get($conf, wrap);
+
+  @if not is-null($wrap) {
+    flex-wrap: #{$wrap};
+  }
+
+  $justify: map-get($conf, justify);
+
+  @if is-string($justify) {
+    justify-content: #{$justify};
+  }
+
+  $align: map-get($conf, align);
+
+  @if is-string($align) {
+    align-items: #{$align};
+  }
+}
+
+/**
+* Defines flex-item properties
+*
+* @param   {Number|String}  $basis    Defines `flex-basis` property (defaults to auto)
+* @param   {Number}         $gutter   Sets a spacer/gutter using `calc()`. Can be percentage or any em/px/rem value
+*/
+@mixin flex-item( $basis: auto, $gutter: null ) {
+  // flex basis uses `calc()` if gutter is specified
+  @if is-length($gutter) or is-percentage($gutter) {
+    flex-basis: calc(#{$basis} - #{$gutter});
+    width: calc(#{$basis} - #{$gutter});
+  }
+  // falls back to normal values
+  @else {
+    flex-basis: #{$basis};
+    width: #{$basis};
+  }
+
+  body.ie11 & { flex-basis: auto; }
+}

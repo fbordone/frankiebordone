@@ -1,0 +1,74 @@
+/* ==============================================================================================
+
+// OUTPUTS FONT PROPERTIES
+
+================================================================================================= */
+
+/**
+ * Outputs font declarations on an element
+ *
+ * Ths is based on the `$fonts` map in `../01_common/_config.scss`
+ *
+ * @param   {Map}       $conf   Optional input arguments
+ *
+ *   @type  {String}    type    Font key to get properties from. If 'inherit' is passed, will use `font-family: inherit`
+ *   @type  {String}    style   Accepts 'normal', 'oblique', or 'italic'
+ *   @type  {String}    weight  Accepts 'light', 'normal', or 'bold'
+ */
+@mixin font-family( $conf: () ) {
+  // extend default values if they were passed
+  $conf: map-merge(
+    (
+      type: inherit,
+      style: null,
+      weight: null
+    ),
+    $conf
+  );
+
+  // fail if `$fonts` map is not defined
+  @if not variable-exists(fonts) {
+    @error "`$fonts` map is not defined, or is not configured properly.";
+  }
+
+  // check what value `type` key is
+  $font: null;
+
+  @if map-get($conf, type) == 'default' or map-get($conf, type) == 'inherit' {
+    $font: map-get($fonts, default);
+  }
+
+  @else if map-has-key($fonts, map-get($conf, type)) {
+    $font: map-get($fonts, map-get($conf, type));
+  }
+
+  @else {
+    @warn "Key `#{map-get($conf, type)}` not found within `$fonts` map.";
+  }
+
+  // output CSS
+  @if type-of($font) == 'map' and not is-null($font) {
+
+    // font family
+    $family: map-get($font, family);
+    $fallbacks: map-get($font, fallbacks);
+    // if type: inherit, no font-family declaration will be printed
+    @if is-string($family) and is-string($fallbacks) and map-get($conf, type) != 'inherit' {
+      font-family: #{join($family, $fallbacks, comma)}; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+    }
+
+    // font style
+    $styles: map-get($font, styles);
+
+    @if not is-null(map-get($conf, style)) and map-has-key($styles, map-get($conf, style)) {
+      font-style: #{map-get($styles, map-get($conf, style))};
+    }
+
+    // font weight
+    $weights: map-get($font, weights);
+
+    @if not is-null(map-get($conf, weight)) and map-has-key($weights, map-get($conf, weight)) {
+      font-weight: #{map-get($weights, map-get($conf, weight))};
+    }
+  }
+}

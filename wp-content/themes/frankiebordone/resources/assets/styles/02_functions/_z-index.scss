@@ -1,0 +1,21 @@
+/* ==============================================================================================
+
+// SET UP GLOBAL Z-INDEX DEPTHS
+
+================================================================================================= */
+
+/**
+ * Returns a z-index based on pre-defined values
+ *
+ * @param  {String} $key 		Map key from `$z-layers` in `../01_common/_config.scss`
+ * @return {Int}      			Returns z-index value
+ */
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+
+  @return null;
+}

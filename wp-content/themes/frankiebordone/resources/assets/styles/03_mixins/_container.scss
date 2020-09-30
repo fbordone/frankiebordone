@@ -1,0 +1,50 @@
+/* ==============================================================================================
+
+// CONTAINER MIXIN
+
+================================================================================================= */
+
+/**
+ * Defines a container with max-width and gutter (with default values)
+ *
+ * @type    {Map}     $conf     All config variables
+ *   @param {Number}  width     Max-width of the container in `px` (defaults to `$container-max-width`)
+ *   @param {Number}  gutter    Gutter width for each side of container (can be in any length unit e.g. %, px, rem) (defaults to `$container-gutter`)
+ *   @param {Number}  context   Sets context for defining `em` values in `px` (defaults to `$font-size-base`)
+ *
+ * @see `../01_common/_config.scss`
+ */
+@mixin container( $conf: () ) {
+  $conf: map-merge(
+    (
+      width: $container-max-width,
+      gutter: $container-gutter,
+      context: $font-size-base
+    ),
+    $conf
+  );
+
+  // max-width
+  $width: map-get($conf, width);
+  $context: map-get($conf, context);
+
+  @if is-px($width) and is-px($context) {
+    max-width: em($width, $context);
+  }
+
+  // gutter
+  $gutter: map-get($conf, gutter);
+
+  @if is-px($gutter) {
+    padding: 0 em($gutter, $context);
+  }
+
+  @else {
+    padding: 0 $gutter;
+  }
+
+  // other styles
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

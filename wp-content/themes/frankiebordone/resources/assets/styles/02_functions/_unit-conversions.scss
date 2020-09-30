@@ -1,0 +1,80 @@
+/* ==============================================================================================
+
+// CONVERT UNITS
+
+================================================================================================= */
+
+/**
+ * Shorthand helper function
+ *
+ * @see   px-to-rem() below
+ */
+@function rem($pixels) {
+  @return px-to-rem($pixels);
+}
+
+/**
+ * Returns an rem value from a px value
+ *
+ * @param  {Number} $pixels   Takes px value
+ * @return {Number}           Returns rem value
+ */
+
+@function px-to-rem($pixels) {
+  // check that both parameters are in the correct unit
+  // (either px or unitless)
+  @if not (is-px($pixels) or unitless($pixels) ) {
+    @error "`#{$pixels}` should be in `px` or unitless";
+  }
+
+  // recommended way to convert units
+  @return #{((strip-unit($pixels)) / (strip-unit(16px))) * 1rem}; // `16px` is based on the html default font size, most likely 16px
+}
+
+/**
+ * Shorthand helper function
+ *
+ * @see   px-to-em() below
+ */
+@function em($pixels, $context: $font-size-base) {
+  @return px-to-em($pixels, $context);
+}
+
+/**
+ * Returns an em value from a px value
+ *
+ * @param  {Number} $pixels     Takes px value
+ * @param  {Number} $context    Takes px value
+ * @return {Number}             Returns em value
+ *
+ * @uses   {Number} $font-size-base in `../01_common/_config.scss`
+ */
+
+@function px-to-em($pixels, $context: $font-size-base) {
+  // check that both parameters are in the correct unit
+  // (either px or unitless)
+  @if not (is-px($pixels) or unitless($pixels) ) {
+    @error "`#{$pixels}` should be in `px` or unitless";
+  }
+
+  @if not (is-px($context) or unitless($context) ) {
+    @error "`#{$context}` should be in `px` or unitless";
+  }
+
+  // recommended way to convert units
+  @return #{((strip-unit($pixels)) / (strip-unit($context))) * 1em};
+}
+
+/**
+ * Remove the unit of a length
+ *
+ * @param  {String} $number   Number to remove unit from
+ * @return {String}           Unitless number
+ */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

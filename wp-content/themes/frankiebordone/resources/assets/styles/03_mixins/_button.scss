@@ -1,0 +1,62 @@
+/* ==============================================================================================
+
+// BUTTON MIXINS
+
+================================================================================================= */
+
+/**
+* Default button styles
+*
+* @param   {Map}       $conf   Optional input arguments
+*
+*   @type  {Color}    bg        Defines `background-color` property
+*   @type  {Color}    color     Defines `color` property
+*   @type  {Number}   size      Defines `font-size` context for all button sizing properties (should be in `px` or unitless)
+*/
+@mixin button( $conf: () ) {
+  // merge default arguments
+  $conf: map-merge(
+    (
+      bg: c(black),
+      color: c(white),
+      // override default font size (in px)
+      size: $font-size-button
+    ),
+    $conf
+  );
+
+  // check what font-size context should be used
+  $context: map-get($conf, size);
+
+  // background
+  $bg: map-get($conf, bg);
+
+  @if not is-null($bg) and type-of($bg) == 'color' {
+    background-color: #{$bg};
+  }
+
+  // text color
+  $color: map-get($conf, color);
+
+  @if type-of($color) == 'color' {
+    color: #{$color};
+    &:visited { color: #{$color}; }
+  }
+
+  // other default button styles
+  cursor: pointer;
+  // font-family is hard-coded as @font-family mixin may or may not be available yet
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: em($font-size-button, $font-size-base);
+  letter-spacing: em(2, $context);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: em(22px, $context) em(30px, $context) em(20px, $context);
+  line-height: 1;
+  text-align: center;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+}

@@ -1,0 +1,94 @@
+/* ==============================================================================================
+
+// TYPOGRAPHY MIXINS
+
+// @see `../01_common/_config.scss for variable definitions
+
+================================================================================================= */
+
+/************ Internal variables ************/
+$_heading-letter-spacing: 4px; // keep this value in `px`
+$_heading-line-height: 1.2; // keep this value unitless
+
+/************ Placeholder selector for setting defaults ************/
+%heading {
+  margin: 0;
+  // hardcode the `font-family` attribute here as the `@font-family` mixin may or may not be available at this point
+
+  // font-family: 'Portsmouth', 'Times New Roman', 'Times', serif;
+  line-height: $_heading-line-height;
+}
+
+/************ Heading definitions ************/
+
+/**
+ * H1 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h1( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h1, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h1); // new font-size context
+}
+
+/**
+ * H2 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h2( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h2, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h2); // new font-size context
+}
+
+/**
+ * H3 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h3( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h3, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h3); // new font-size context
+}
+
+/**
+ * H4 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h4( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h4, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h4); // new font-size context
+}
+
+/**
+ * H5 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h5( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h5, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h5); // new font-size context
+}
+
+/**
+ * H6 styles
+ *
+ * @param  {Number} $context: $font-size-base       Should be in `px` units
+ */
+@mixin h6( $context: $font-size-base ) {
+  @extend %heading;
+
+  font-size: em($font-size-h6, $context);
+  letter-spacing: em($_heading-letter-spacing, $font-size-h6); // new font-size context
+}

@@ -1,0 +1,21 @@
+/* ==============================================================================================
+
+// VISIBILITY MIXINS
+
+================================================================================================= */
+
+@mixin hide() {
+  display: none;
+}
+
+@mixin show($display: block) {
+  display: $display;
+}
+
+@mixin invisible() {
+  visibility: hidden;
+}
+
+@mixin visible() {
+  visibility: visible;
+}

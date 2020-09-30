@@ -1,0 +1,34 @@
+/* ==============================================================================================
+
+// POSITION MIXIN
+
+================================================================================================= */
+
+/**
+ * Takes a position type and values for top/bottom/left/right
+ *
+ * @param {String}  $type     e.g. relative/absolute/fixed/etc.
+ * @param {String}  $coords   map of top/left/right/bottom positions (with set defaults)
+ */
+@mixin position( $type: relative, $coords: () ) {
+  // set position
+  position: #{$type};
+
+  // merge defaults with passed args
+  $coords: map-merge(
+    (
+      top: null,
+      right: null,
+      bottom: null,
+      left: null,
+    ),
+    $coords
+  );
+
+  // output css
+  @each $coord, $value in $coords {
+    @if is-position($value) and not is-null($value) {
+      #{$coord}: #{$value};
+    }
+  }
+}

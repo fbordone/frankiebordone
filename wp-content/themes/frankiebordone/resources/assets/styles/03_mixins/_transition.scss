@@ -1,0 +1,53 @@
+/* ==============================================================================================
+
+// TRANSITION MIXIN
+
+================================================================================================= */
+
+/**
+ * Sets transitions for an element
+ *
+ * If multiple transitions are desired, you can use a space-separated list of properties, but they will all have the same duration and timing.
+ * NOTE: if you need complex transitions with different durations/timings/delays, do not use this mixin
+ *
+ * @param  {Map}      $conf       Map of arguments
+ *   @type {String}   properties  one property only (doesn't currently work with multiple)
+ *   @type {Number}   duration    must include units (`ms` or `s`)
+ *   @type {String}   timing      defaults to `ease-in-out`
+ */
+@mixin transition( $conf: () ) {
+  // merge defaults with passed args
+  $conf: map-merge(
+    (
+      properties: null,
+      duration: 300ms,
+      timing: ease-in-out
+    ),
+    $conf
+  );
+
+  // duration
+  $duration: map-get($conf, duration);
+
+  @if is-duration($duration) {
+    transition-duration: #{$duration};
+  }
+
+  // timing function
+  $timing: map-get($conf, timing);
+
+  @if is-string($timing) {
+    transition-timing-function: #{$timing};
+  }
+
+  // properties
+  $properties: map-get($conf, properties);
+
+  @if length($properties) == 1 {
+    transition-property: $properties;
+  }
+
+  // @else {
+  //   transition-property: join($properties, '', comma);
+  // }
+}

@@ -1,0 +1,184 @@
+/* ==============================================================================================
+
+// GLOBAL MAPS
+
+// DO NOT change these map names/values unless you know what you're doing
+
+================================================================================================= */
+
+/**
+ * Color Palette
+ *
+ * Defines theme colors, along with tone modifiers
+ *
+ * Example colors & modifiers are included below - modify to your project's specs.
+ *
+ * @see   ../02_functions/_color.scss
+ */
+$colors: (
+  white: (
+    light: #fff,
+    base: darken(#fff, 10%),
+    dark: desaturate(#fff, 10%),
+  ),
+  blue: (
+    base: #264a70,
+    dark: #061730,
+  ),
+  gold: (
+    light: #d79c6a,
+    base: #d3923b,
+    dark: #976f4e,
+  ),
+  black: (
+    base: #4a4a4a,
+  ),
+);
+
+/**
+ * Font configuration
+ *
+ * Sets all fonts, styles, weights, and fallbacks used throughout the site
+ *
+ * Examples are included below - modify according to fonts needed in your project.
+ *
+ * @see   ../fonts.scss
+ * @see   ../03_mixins/_font-family.scss
+ */
+$fonts: (
+  default: (
+    family: 'Trade Gothic',
+    fallbacks: "Helvetica Neue, Helvetica, sans-serif",
+    styles: (
+      normal: normal,
+    ),
+    weights: (
+      normal: 400,
+      bold: 700,
+    ),
+  ),
+  headings: (
+    family: 'Portsmouth',
+    fallbacks: "Times New Roman, Times, serif",
+    styles: (
+      normal: normal,
+    ),
+    weights: (
+      normal: 400,
+    ),
+  ),
+);
+
+/**
+ * Media Breakpoints
+ *
+ * Sets default media query breakpoints (using min-width)
+ * Note: `em` media queries are ALWAYS based on `16px` browser base size
+ *
+ * @see   ../03_mixins/_media-queries.scss
+ */
+$breakpoints: (
+  mobile: (
+    sm: 20em,
+    md: 30em,
+    lg: 40em
+  ),
+  tablet: (
+    sm: 50em,
+    md: 60em,
+    lg: 70em
+  ),
+  laptop: (
+    sm: 80em,
+    md: 90em,
+    lg: 100em
+  ),
+  desktop: (
+    sm: 110em,
+    md: 120em,
+    lg: 130em
+  ),
+  tv: (
+    sm: 140em,
+    md: 150em,
+    lg: 160em
+  )
+);
+
+/**
+ * Z-Index
+ *
+ * Sets default z-index layers
+ *
+ * @see   ../02_functions/_z-index.scss
+ */
+$z-layers: (
+  abyss: -9999,
+  hidden: -1,
+  default: 1,
+  nav: 3000,
+  subnav: 3005,
+  sticky: 4000,
+  overlay: 5000,
+  modal: 5005,
+  above-all: 9999
+);
+
+/**
+ * Asset paths
+ *
+ * These should be relative to the main.scss file in the `assets/styles` folder
+ *
+ */
+$assets: (
+  base: '..',
+  images: '../images',
+  fonts: '../fonts',
+  styles: '../styles',
+  scripts: '../scripts',
+);
+
+/* ==============================================================================================
+
+// USEFUL/GLOBAL VARIABLES
+
+================================================================================================= */
+
+/*
+ * TABLE OF CONTENTS
+ *
+ *   01. TYPOGRAPHY
+ *
+ *   02. BUTTONS
+ *
+ *   03. CONTAINER / GRID / SPACING
+ *
+ */
+
+/*
+ * 01. TYPOGRAPHY
+ */
+$font-size-base: 18px;
+$font-line-height: 1.95;
+$font-size-typescale: 1.25;
+// headings
+$font-size-h6: $font-size-base;
+$font-size-h5: $font-size-h6 * $font-size-typescale;
+$font-size-h4: $font-size-h5 * $font-size-typescale;
+$font-size-h3: $font-size-h4 * $font-size-typescale;
+$font-size-h2: $font-size-h3 * $font-size-typescale;
+$font-size-h1: $font-size-h2 * $font-size-typescale;
+
+/*
+ * 02. BUTTONS
+ */
+$font-size-button: $font-size-base * 0.8; // 14.5px (with 18px as reference point)
+
+/*
+ * 03. CONTAINER / GRID / SPACING
+ */
+// container
+$container-max-width: 1280px;
+$container-gutter: 20px;
+// spacing
+$vertical-spacer: 75px;

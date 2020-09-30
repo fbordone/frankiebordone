@@ -1,0 +1,64 @@
+/* ==============================================================================================
+
+// EXTERNAL STYLES
+
+================================================================================================= */
+
+/* AUTOLOAD */
+@import "./autoload/**/*";
+
+/* NPM DEPENDENCIES */
+// Prefix your imports with `~` to grab from node_modules/
+// @see https://github.com/webpack-contrib/sass-loader#imports
+// @import "~some-node-module";
+
+/* ==============================================================================================
+
+// THEME STYLES
+
+================================================================================================= */
+
+/* GLOBAL CONFIGURATION */
+@import "01_common/_config";
+
+/* HELPER FUNCTIONS */
+@import "02_functions/_color";
+@import "02_functions/_type-check";
+@import "02_functions/_unit-conversions";
+@import "02_functions/_z-index";
+
+/* UTILITY MIXINS */
+@import "03_mixins/_absolute-center";
+@import "03_mixins/_button";
+@import "03_mixins/_clearfix";
+@import "03_mixins/_container";
+@import "03_mixins/_flexbox";
+@import "03_mixins/_font-family";
+@import "03_mixins/_grid-row";
+@import "03_mixins/_headings";
+@import "03_mixins/_images";
+@import "03_mixins/_inline-block";
+@import "03_mixins/_media-queries";
+@import "03_mixins/_position";
+@import "03_mixins/_screen-reader";
+@import "03_mixins/_transition";
+@import "03_mixins/_visibility";
+
+/* GLOBALS / DEFAULTS / RESETS */
+@import "01_common/_global";
+@import "01_common/_svg-sizes";
+
+/* COMPONENTS */
+@import "04_components/_buttons";
+
+/* LAYOUTS */
+@import "05_layouts/_grid";
+@import "05_layouts/_header";
+@import "05_layouts/_footer";
+@import "05_layouts/_editor-content";
+
+/* MODULES */
+// @import "06_modules/_example-module.scss";
+
+/* PAGES */
+// @import "07_pages/_example-module.scss";

@@ -1,0 +1,30 @@
+/* ==============================================================================================
+
+// PULL COLOR FROM `$COLORS` MAP
+
+================================================================================================= */
+
+/**
+ * Helper function
+ *
+ * @see   color()
+ */
+@function c($color, $tone: 'base') {
+  @return color($color, $tone);
+}
+
+/**
+ * Checks for base color, along with optional tone modifier
+ *
+ * @param  $color     main color from `01_common/_config.scss`
+ * @param  $tone      tone modifier (i.e. light or dark)
+ */
+@function color($color, $tone: 'base') {
+  @if map-has-key($colors, $color) {
+    @return map-get(map-get($colors, $color), $tone);
+  }
+
+  @warn "Unknown `#{$color}` in $colors.";
+
+  @return null;
+}

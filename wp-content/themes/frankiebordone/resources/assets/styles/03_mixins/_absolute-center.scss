@@ -1,0 +1,45 @@
+/* ==============================================================================================
+// ABSOLUTE CENTER MIXIN
+================================================================================================= */
+
+/**
+ * Allows for absolute centering of a child element, using CSS transforms
+ *
+ * Should be called on the direct parent of the element needing centering
+ *
+ * @param   {Map}       $conf         Optional input arguments
+ *   @type  {String}    ratio         Defines the constraining aspect ratio of the parent element (must be a percentage value)
+ *   @type  {String}    childElem     Sets the tag of the child element (defaults to `img`)
+ */
+@mixin absolute-center( $conf: () ) {
+  // merge defaults with passed arguments
+  $conf: map-merge(
+    (
+      ratio: 56.25%,
+      childElem: 'img',
+    ),
+    $conf
+  );
+
+  position: relative;
+  overflow: hidden;
+
+  // define aspect ratio
+  $ratio: map-get($conf, ratio);
+
+  @if is-percentage($ratio) {
+    padding-bottom: $ratio;
+  }
+
+  // set centering for child element
+  $childElem: unquote(map-get($conf, childElem));
+
+  > #{$childElem} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    height: auto;
+  }
+}
