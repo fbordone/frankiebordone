@@ -2,7 +2,7 @@
   "name": "fbordone/frankiebordone",
   "type": "wordpress-theme",
   "license": "MIT",
-  "description": "Custom WordPress site with headless CMS and utilization of React library",
+  "description": "Custom WordPress site with headless CMS and utilization of ReactJS library",
   "homepage": "https://frankiebordone.com",
   "authors": [
     {
