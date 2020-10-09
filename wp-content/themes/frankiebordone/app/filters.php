@@ -103,28 +103,3 @@ add_filter('max_srcset_image_width', function ( $max_width ) {
     return false;
 });
 
-/**
- * Hide editor on specific pages in admin
- */
-add_filter('use_block_editor_for_post_type', function ($can_edit, $post_type) {
-    if (!is_admin() || empty($_GET['post'])) {
-        return false;
-    }
-
-    $post_id = intval($_GET['post']);
-
-    $excluded_templates = [];
-
-    if (empty($post_id)) {
-        return false;
-    }
-
-    if (in_array(get_page_template_slug($post_id), $excluded_templates)) {
-        remove_post_type_support('page', 'editor');
-
-        $can_edit = false;
-    }
-
-    return $can_edit;
-}, 10, 2);
-

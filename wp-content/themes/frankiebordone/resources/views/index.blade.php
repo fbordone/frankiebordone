@@ -1,16 +1,16 @@
-@extends('layouts.app')
+<!doctype html>
+<html {!! get_language_attributes() !!}>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @php wp_head() @endphp
+  </head>
 
-@section('content')
+  <body>
+    {{-- Root DOM node --}}
+    <div id="root"></div>
 
-  @if (!have_posts())
-    <div class="alert alert-warning">
-      {{ __('Sorry, no results were found.', 'frankiebordone') }}
-    </div>
-  @endif
-
-  @while (have_posts()) @php the_post() @endphp
-    <h1>{{ the_title() }}</h1>
-    <p>{{ the_content() }}</p>
-  @endwhile
-
-@endsection
+    @php wp_footer() @endphp
+  </body>
+</html>

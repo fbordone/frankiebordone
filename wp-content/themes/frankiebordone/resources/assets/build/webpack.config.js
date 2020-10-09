@@ -51,11 +51,10 @@ let webpackConfig = {
         loader: 'import-glob',
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: [/node_modules(?![/|\\](bootstrap|foundation-sites))/],
         use: [
-          { loader: 'cache' },
-          { loader: 'buble', options: { objectAssign: 'Object.assign' } },
+          { loader: 'babel-loader' },
         ],
       },
       {
