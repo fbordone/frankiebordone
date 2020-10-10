@@ -52,7 +52,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'frankiebordone')
+        'nav_menu' => __('Navigation Menu', 'frankiebordone')
     ]);
 
     /**
