@@ -1,5 +1,4 @@
 import '../styles/main.scss';
-import '../styles/fonts.scss';
 import './autoload/**/*'
 
 import React from 'react';
