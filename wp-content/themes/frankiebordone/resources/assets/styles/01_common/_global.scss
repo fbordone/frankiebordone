@@ -1,10 +1,10 @@
 /* ==============================================================================================
-
-// GLOBAL CSS
-
+// GLOBAL STYLES
 ================================================================================================= */
 
-/************ Box Sizing ************/
+/**
+ * Box sizing
+ */
 html {
   box-sizing: border-box;
 }
@@ -15,7 +15,9 @@ html {
   box-sizing: inherit;
 }
 
-/************ Positioning ************/
+/**
+ * Positioning
+ */
 div,
 header,
 nav,
@@ -24,45 +26,39 @@ section,
 article,
 footer,
 li {
-  // relative positioning
-  @include position;
+  @include position; // relative positioning
 }
 
-/************ Specific resets ************/
+/**
+ * Specific resets
+ */
 figure {
   margin: 0;
 }
 
-/************ Highlighting ************/
-// ::-moz-selection {}
-// ::selection {}
-
-/************ Typography ************/
+/*
+ * Body element
+ */
 body {
-  margin: 0;
-  // set default body font
   font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: $font-size-base;
   line-height: $font-line-height;
-  background-color: c(white, light);
-  color: c(black);
+  background-color: c(blue, dark);
+  color: c(blue);
+  margin: 0;
 
   // once custom font is loaded asynchronously
-  .wf-tradegothic-n4-active & {
+  .wf-nunito-n4-active & {
     @include font-family((type: default, weight: normal));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
-// 'bold' font (only applies to body copy as heading font has no bold variant)
-strong {
-  @include font-family((weight: bold));
-}
-
-small {
-  font-size: 85%;
-}
-
-/************ Headings ************/
+/*
+ * Headings
+ */
 h1 {
   @include h1;
 }
@@ -87,7 +83,9 @@ h6 {
   @include h6;
 }
 
-/************ Links ************/
+/*
+ * Links
+ */
 a {
   text-decoration: none;
   color: inherit;
@@ -97,12 +95,16 @@ a:visited {
   color: inherit;
 }
 
-/************ Paragraphs ************/
+/*
+ * Paragraphs
+ */
 p {
   margin: 0;
 }
 
-/************ Lists ************/
+/*
+ * Lists
+ */
 ul,
 ol {
   margin: 0;
@@ -110,20 +112,17 @@ ol {
   list-style-type: none;
 }
 
-/************ Images ************/
+/*
+ * Images
+ */
 img {
   @include img-responsive;
-
   vertical-align: middle;
-
-  body.ie11 { width: 100%; }
 }
 
-.img--circle {
-  border-radius: 50%;
-}
-
-/************ Form elements ************/
+/*
+ * Form elements
+ */
 input,
 button,
 select,
@@ -135,54 +134,4 @@ textarea {
   padding: 0;
   border-radius: 0;
   outline: none;
-}
-
-// only add outline ring for keyboard/tab users
-body.user-is-tabbing *:focus {
-  outline: 3px solid #7aacfe !important; /* for non-webkit browsers */
-  outline: 5px auto -webkit-focus-ring-color !important;
-}
-
-// placeholders
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  // text-transform: uppercase;
-  // color: c(blue, dark);
-  // letter-spacing: em(2);
-}
-
-::-moz-placeholder,
-:placeholder-shown { /* Firefox 19+ */
-  // text-transform: uppercase;
-  // color: c(blue, dark);
-  // letter-spacing: em(2);
-}
-
-:-ms-input-placeholder { /* IE 10+ */
-  // text-transform: uppercase;
-  // color: c(blue, dark);
-  // letter-spacing: em(2);
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  // text-transform: uppercase;
-  // color: c(blue, dark);
-  // letter-spacing: em(2);
-}
-
-/************ Screen Readers ************/
-.sr,
-.sr--focusable {
-  @include screen-reader;
-}
-
-.sr--focusable {
-  @include screen-reader-focusable;
-}
-
-[aria-hidden="true"] {
-  @include hide;
-}
-
-[aria-hidden="false"] {
-  @include show;
 }

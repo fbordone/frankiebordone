@@ -1,53 +1,29 @@
 /* ==============================================================================================
-
 // GLOBAL MAPS
-
-// DO NOT change these map names/values unless you know what you're doing
-
 ================================================================================================= */
 
 /**
  * Color Palette
- *
- * Defines theme colors, along with tone modifiers
- *
- * Example colors & modifiers are included below - modify to your project's specs.
- *
- * @see   ../02_functions/_color.scss
  */
 $colors: (
   white: (
-    light: #fff,
-    base: darken(#fff, 10%),
-    dark: desaturate(#fff, 10%),
+    base: #fff,
   ),
   blue: (
-    base: #264a70,
-    dark: #061730,
-  ),
-  gold: (
-    light: #d79c6a,
-    base: #d3923b,
-    dark: #976f4e,
+    base:#a4acc4,
+    dark: #10121b,
   ),
   black: (
-    base: #4a4a4a,
+    base: #000,
   ),
 );
 
 /**
  * Font configuration
- *
- * Sets all fonts, styles, weights, and fallbacks used throughout the site
- *
- * Examples are included below - modify according to fonts needed in your project.
- *
- * @see   ../fonts.scss
- * @see   ../03_mixins/_font-family.scss
  */
 $fonts: (
   default: (
-    family: 'Trade Gothic',
+    family: 'Nunito',
     fallbacks: "Helvetica Neue, Helvetica, sans-serif",
     styles: (
       normal: normal,
@@ -71,11 +47,6 @@ $fonts: (
 
 /**
  * Media Breakpoints
- *
- * Sets default media query breakpoints (using min-width)
- * Note: `em` media queries are ALWAYS based on `16px` browser base size
- *
- * @see   ../03_mixins/_media-queries.scss
  */
 $breakpoints: (
   mobile: (
@@ -106,11 +77,7 @@ $breakpoints: (
 );
 
 /**
- * Z-Index
- *
- * Sets default z-index layers
- *
- * @see   ../02_functions/_z-index.scss
+ * Z-Index layers
  */
 $z-layers: (
   abyss: -9999,
@@ -124,44 +91,20 @@ $z-layers: (
   above-all: 9999
 );
 
-/**
- * Asset paths
- *
- * These should be relative to the main.scss file in the `assets/styles` folder
- *
- */
-$assets: (
-  base: '..',
-  images: '../images',
-  fonts: '../fonts',
-  styles: '../styles',
-  scripts: '../scripts',
-);
-
 /* ==============================================================================================
-
-// USEFUL/GLOBAL VARIABLES
-
+// GLOBAL VARIABLES
 ================================================================================================= */
 
 /*
- * TABLE OF CONTENTS
- *
- *   01. TYPOGRAPHY
- *
- *   02. BUTTONS
- *
- *   03. CONTAINER / GRID / SPACING
- *
- */
-
-/*
- * 01. TYPOGRAPHY
+ * Typography
  */
 $font-size-base: 18px;
 $font-line-height: 1.95;
 $font-size-typescale: 1.25;
-// headings
+
+/*
+ * Headings
+ */
 $font-size-h6: $font-size-base;
 $font-size-h5: $font-size-h6 * $font-size-typescale;
 $font-size-h4: $font-size-h5 * $font-size-typescale;
@@ -170,15 +113,35 @@ $font-size-h2: $font-size-h3 * $font-size-typescale;
 $font-size-h1: $font-size-h2 * $font-size-typescale;
 
 /*
- * 02. BUTTONS
+ * Buttons
  */
 $font-size-button: $font-size-base * 0.8; // 14.5px (with 18px as reference point)
 
 /*
- * 03. CONTAINER / GRID / SPACING
+ * Containers
  */
-// container
-$container-max-width: 1280px;
+$container-max-width: 1600px;
 $container-gutter: 20px;
-// spacing
-$vertical-spacer: 75px;
+
+/*
+ * Media query breakpoints
+ */
+$_mobile-320px-breakpoint: (device: mobile, size: sm);
+$_mobile-480px-breakpoint: (device: mobile);
+$_mobile-640px-breakpoint: (device: mobile, size: lg);
+
+$_tablet-800px-breakpoint: (device: tablet, size: sm);
+$_tablet-960px-breakpoint: (device: tablet);
+$_tablet-1120px-breakpoint: (device: tablet, size: lg);
+
+$_laptop-1280px-breakpoint: (device: laptop, size: sm);
+$_laptop-1440px-breakpoint: (device: laptop);
+$_laptop-1600px-breakpoint: (device: laptop, size: lg);
+
+$_desktop-1760px-breakpoint: (device: desktop, size: sm);
+$_desktop-1920px-breakpoint: (device: desktop);
+$_desktop-2080px-breakpoint: (device: desktop, size: lg);
+
+$_tv-2240px-breakpoint: (device: tv, size: sm);
+$_tv-2400px-breakpoint: (device: tv);
+$_tv-2560px-breakpoint: (device: tv, size: lg);

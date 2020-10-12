@@ -1,0 +1,13 @@
+/* ==============================================================================================
+// MAIN APP COMPONENT STYLES (REACT)
+// SEE `/../resources/assets/scripts/react/App.js`
+================================================================================================= */
+
+.wrap {
+  @include container((gutter: 0));
+  min-height: 100vh;
+
+  @include min-width($_laptop-1280px-breakpoint) {
+    padding-left: 300px;
+  }
+}
