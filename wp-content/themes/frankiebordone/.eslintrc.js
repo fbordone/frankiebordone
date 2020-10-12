@@ -1,6 +1,7 @@
 module.exports = {
   'root': true,
   'extends': 'eslint:recommended',
+  'parser': "@babel/eslint-parser",
   'globals': {
     'wp': true,
   },
@@ -17,12 +18,14 @@ module.exports = {
       'generators': false,
       'objectLiteralDuplicateProperties': false,
       'experimentalObjectRestSpread': true,
+      'jsx': true,
     },
     'ecmaVersion': 2017,
     'sourceType': 'module',
   },
   'plugins': [
     'import',
+    'react',
   ],
   'settings': {
     'import/core-modules': [],
@@ -44,5 +47,7 @@ module.exports = {
         'functions': 'ignore',
       },
     ],
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
   },
 };
