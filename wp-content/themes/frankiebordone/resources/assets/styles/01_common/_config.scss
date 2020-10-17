@@ -10,7 +10,9 @@ $colors: (
     base: #fff,
   ),
   blue: (
-    base:#a4acc4,
+    lighter:#a4acc4,
+    light: #2e344e,
+    base: #191d2b,
     dark: #10121b,
   ),
   black: (
@@ -136,6 +138,7 @@ $_tablet-1120px-breakpoint: (device: tablet, size: lg);
 
 $_laptop-1280px-breakpoint: (device: laptop, size: sm);
 $_laptop-1440px-breakpoint: (device: laptop);
+$_laptop-1500px-breakpoint: (device: custom, size: 93.75em);
 $_laptop-1600px-breakpoint: (device: laptop, size: lg);
 
 $_desktop-1760px-breakpoint: (device: desktop, size: sm);

@@ -1,13 +1,9 @@
 /* ==============================================================================================
-// MAIN APP COMPONENT STYLES
-// SEE `/../resources/assets/scripts/react/App.js`
+// HOME COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Home.js`
 ================================================================================================= */
 
-.wrap {
-  padding-left: 0;
+.home {
+  @include flex-container((justify: center));
   min-height: 100vh;
-
-  @include min-width($_tablet-1120px-breakpoint) {
-    padding-left: 300px;
-  }
 }

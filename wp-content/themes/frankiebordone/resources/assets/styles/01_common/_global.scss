@@ -44,7 +44,7 @@ body {
   font-size: $font-size-base;
   line-height: $font-line-height;
   background-color: c(blue, dark);
-  color: c(blue);
+  color: c(blue, lighter);
   margin: 0;
 
   // once custom font is loaded asynchronously

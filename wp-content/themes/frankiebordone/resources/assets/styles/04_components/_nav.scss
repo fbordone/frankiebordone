@@ -1,0 +1,61 @@
+/* ==============================================================================================
+// NAV COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Nav.js`
+================================================================================================= */
+
+.nav {
+  @include position(fixed, (top: 0, left: 0));
+  @include transition((properties: all));
+  width: 250px;
+  height: 100vh;
+  background-color: c(blue);
+  border-right: em(1) solid c(blue, light);
+  z-index: z(nav);
+  transform: translateX(-100%);
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    width: 260px;
+    transform: translateX(0);
+  }
+
+  @include min-width($_laptop-1500px-breakpoint) {
+    width: 300px;
+  }
+
+  &--visible {
+    transform: translateX(0);
+  }
+}
+
+.nav__menu-btn {
+  @include position(absolute, (top: 20px, left: 100%));
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  background-color: c(blue);
+  border: em(1) solid c(blue, light);
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    @include hide;
+  }
+
+  &-line {
+    @include position(absolute, (left: 11px));
+    display: block;
+    width: 25px;
+    height: 1.5px;
+    background-color: c(blue, lighter);
+
+    &:nth-child(1) {
+      top: 17px;
+    }
+
+    &:nth-child(2) {
+      top: 23px;
+    }
+
+    &:nth-child(3) {
+      top: 29px;
+    }
+  }
+}
