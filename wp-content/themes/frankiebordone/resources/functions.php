@@ -58,7 +58,7 @@ array_map(function ($file) use ($theme_error) {
     if (!locate_template($file, true, true)) {
         $theme_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'frankiebordone'), $file), 'File not found');
     }
-}, ['helpers', 'setup', 'filters']);
+}, ['helpers', 'setup', 'filters', 'endpoints']);
 
 /**
  * Here's what's happening with these hooks:
