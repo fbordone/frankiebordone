@@ -12,8 +12,9 @@ $colors: (
   blue: (
     lighter:#a4acc4,
     light: #2e344e,
-    base: #191d2b,
-    dark: #10121b,
+    base: #037fff,
+    dark: #191d2b,
+    darker: #10121b,
   ),
   black: (
     base: #000,
@@ -100,7 +101,7 @@ $z-layers: (
 /*
  * Typography
  */
-$font-size-base: 18px;
+$font-size-base: 16px;
 $font-line-height: 1.95;
 $font-size-typescale: 1.25;
 

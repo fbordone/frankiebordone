@@ -7,7 +7,7 @@ class App extends React.Component {
   loadFont() {
     WebFont.load({
       google: {
-        families: ['Nunito', 'Nunito:400,700'],
+        families: ['Nunito', 'Nunito:400,600,700'],
       },
       timeout: 3000,
     })

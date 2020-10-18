@@ -5,8 +5,17 @@ import axios from 'axios';
 class Nav extends React.Component {
   state = {
     pages: [],
+    navImage: '',
     active: false,
   };
+
+  getNavImage() {
+    axios.get('/wp-json/wp/v2/nav')
+      .then(res => {
+        const navImage = res.data.image;
+        this.setState({ navImage });
+      })
+  }
 
   getPagesFromMenu() {
     axios.get('/wp-json/wp/v2/menu')
@@ -17,6 +26,7 @@ class Nav extends React.Component {
   }
 
   componentDidMount() {
+    this.getNavImage();
     this.getPagesFromMenu();
   }
 
@@ -35,13 +45,21 @@ class Nav extends React.Component {
         </button>
 
         <div className="nav__contents">
+          <div className="nav__image">
+            <NavLink exact to='/' className="nav__image-link" onClick={this.toggleMenu}>
+              <img src={this.state.navImage} alt="A photo of Frankie Bordone" />
+            </NavLink>
+          </div>
+
           <ul className="nav__menu">
             {this.state.pages.map(page =>
-              <li key={page.ID}>
+              <li key={page.ID} className="nav__menu-list-item">
                 <NavLink exact to={page.path} onClick={this.toggleMenu}>{page.title}</NavLink>
               </li>
             )}
           </ul>
+
+          <p className="nav__copyright">© { new Date().getFullYear() } <span className="bold">Frankie Bordone</span></p>
         </div>
       </nav>
     )
