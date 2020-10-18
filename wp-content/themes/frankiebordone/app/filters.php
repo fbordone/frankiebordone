@@ -75,6 +75,22 @@ add_filter('template_include', function ($template) {
 }, PHP_INT_MAX);
 
 /**
+ * Add ACF Theme Options Page
+ */
+add_action('init', function () {
+    if( function_exists('acf_add_options_page') ) {
+        acf_add_options_page([
+            'page_title'    => __('Theme Settings', 'frankiebordone'),
+            'menu_title'    => __('Theme Settings', 'frankiebordone'),
+            'menu_slug'     => 'theme-settings',
+            'capability'    => 'edit_posts',
+            'redirect'      => false,
+            'autoload'      => true,
+        ]);
+    }
+});
+
+/**
  * Define ACF JSON save point
  */
 add_filter('acf/settings/save_json', function ( $path ) {
