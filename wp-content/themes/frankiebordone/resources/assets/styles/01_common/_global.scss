@@ -137,8 +137,12 @@ textarea {
 }
 
 /*
- * Font weights
+ * Font weights and colors
  */
 .bold {
   font-weight: bold;
+}
+
+.blue {
+  color: c(blue);
 }
