@@ -7,21 +7,23 @@ class Nav extends React.Component {
     pages: [],
     navImage: '',
     active: false,
+    visible: false,
   };
 
   getNavImage() {
     axios.get('/wp-json/wp/v2/nav')
       .then(res => {
-        const navImage = res.data.image;
-        this.setState({ navImage });
+        this.setState({ navImage: res.data.image });
       })
   }
 
   getPagesFromMenu() {
     axios.get('/wp-json/wp/v2/menu')
       .then(res => {
-        const pages = res.data;
-        this.setState({ pages });
+        this.setState({
+          pages: res.data,
+          visible: true,
+        });
       })
   }
 
@@ -44,7 +46,7 @@ class Nav extends React.Component {
           <span className="nav__menu-btn-line"></span>
         </button>
 
-        <div className="nav__contents">
+        <div className={ `nav__contents ${this.state.visible ? 'visible' : 'hidden'}` }>
           <div className="nav__image">
             <NavLink exact to='/' className="nav__image-link" onClick={this.toggleMenu}>
               <img src={this.state.navImage} alt="A photo of Frankie Bordone" />

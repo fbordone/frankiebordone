@@ -9,6 +9,7 @@ class Home extends React.Component {
   state = {
     title: '',
     tagline: '',
+    visible: false,
   };
 
   getPageContent() {
@@ -18,6 +19,7 @@ class Home extends React.Component {
         this.setState({
           title: data.title,
           tagline: data.tagline,
+          visible: true,
         });
       })
   }
@@ -33,7 +35,7 @@ class Home extends React.Component {
 
         <BackgroundDots />
 
-        <div className="home__wrapper">
+        <div className={ `home__wrapper ${this.state.visible ? 'visible' : 'hidden'}` }>
           <h1 className="home__title bold">
             <span className="blue">Frankie Bordone, </span> {this.state.title}
           </h1>

@@ -146,3 +146,18 @@ textarea {
 .blue {
   color: c(blue);
 }
+
+/*
+ * Visible and hidden
+ */
+.visible {
+  @include transition((properties: all));
+  visibility: visible;
+  opacity: 1;
+}
+
+.hidden {
+  @include transition((properties: all));
+  visibility: hidden;
+  opacity: 0;
+}
