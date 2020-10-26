@@ -8,6 +8,10 @@
   min-height: 100vh;
 
   @include min-width($_tablet-1120px-breakpoint) {
+    padding-left: 260px;
+  }
+
+  @include min-width($_laptop-1500px-breakpoint) {
     padding-left: 300px;
   }
 }

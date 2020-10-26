@@ -1,0 +1,25 @@
+/* ==============================================================================================
+// BACKGROUND EFFECTS COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/BackgroundDots.js`
+// SEE `/../resources/assets/scripts/react/components/BackgroundParticles.js`
+================================================================================================= */
+
+.background__particles,
+.background__dots {
+  @include position(absolute, (top: 0, left: 0));
+  height: 100%;
+  width: 100%;
+  z-index: z(hidden);
+}
+
+.background__particles {
+  #tsparticles {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.background__dots {
+  background-image: radial-gradient(#2e344e 0.5px, transparent 0.5px);
+  background-size: calc(10 * 0.5px) calc(10 * 0.5px);
+}
