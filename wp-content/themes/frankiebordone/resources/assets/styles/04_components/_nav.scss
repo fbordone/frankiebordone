@@ -39,6 +39,16 @@
     @include hide;
   }
 
+  &::before {
+    content: none;
+  }
+
+  &:hover {
+    &::before {
+      transform: unset;
+    }
+  }
+
   &-line {
     @include position(absolute, (left: 11px));
     display: block;
