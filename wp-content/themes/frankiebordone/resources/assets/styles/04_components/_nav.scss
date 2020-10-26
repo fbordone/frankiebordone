@@ -152,8 +152,9 @@
 }
 
 .nav__copyright {
-  width: 100%;
+  font-size: 16px;
   text-align: center;
-  padding: em(15, $font-size-base) 0;
-  border-top: em(1, $font-size-base) solid c(blue, light);
+  padding: 15px 0;
+  border-top: 1px solid c(blue, light);
+  width: 100%;
 }
