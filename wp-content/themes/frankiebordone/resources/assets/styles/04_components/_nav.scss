@@ -114,8 +114,9 @@
     @include position;
     @include transition((properties: all));
     display: block;
-    letter-spacing: em(0.75, $font-size-base);
-    padding: em(5, $font-size-base) 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 7px 0;
     text-transform: uppercase;
     font-weight: 600;
 
