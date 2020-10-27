@@ -111,9 +111,11 @@ $font-size-h6: $font-size-base;
 $font-size-h5: $font-size-h6;
 $font-size-h4: $font-size-h5;
 $font-size-h3: $font-size-h4;
-$font-size-h2: $font-size-h3;
 
-$font-size-h1--mobile: 42px;
+$font-size-h2--mobile: 35px;
+$font-size-h2--desktop: 42px;
+
+$font-size-h1--mobile: $font-size-h2--desktop;
 $font-size-h1--desktop: 52px;
 
 /*

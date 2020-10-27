@@ -1,0 +1,76 @@
+/* ==============================================================================================
+// RESUME COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Resume.js`
+================================================================================================= */
+
+.resume {
+  min-height: 100vh;
+}
+
+.resume__skills_wrap,
+.resume__timeline_wrap {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+
+  @include min-width($_mobile-480px-breakpoint) {
+    max-width: 540px;
+  }
+
+  @include min-width($_tablet-800px-breakpoint) {
+    max-width: 720px;
+  }
+
+  @include min-width($_tablet-960px-breakpoint) {
+    max-width: 960px;
+  }
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    max-width: 1120px;
+  }
+}
+
+.resume__skills_title {
+  margin-bottom: 40px;
+}
+
+.resume__skills_copy {
+  p + p {
+    margin-top: 25px;
+  }
+
+  .resume__skills_copy_list {
+    @include flex-container((direction: column, align: flex-start));
+    margin-top: 25px;
+
+    @include min-width($_tablet-800px-breakpoint) {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+
+      & + ul {
+        @include min-width($_tablet-800px-breakpoint) {
+          margin-left: 25px;
+        }
+
+        @include min-width($_tablet-960px-breakpoint) {
+          margin-left: 75px;
+        }
+      }
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 30px;
+
+      @include min-width($_tablet-960px-breakpoint) {
+        font-size: 20px;
+        line-height: 35px;
+      }
+    }
+  }
+}

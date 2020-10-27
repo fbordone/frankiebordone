@@ -27,8 +27,6 @@
   margin: 0 auto;
 
   @include min-width($_tablet-960px-breakpoint) {
-    font-size: 20px;
-    line-height: 32px;
     max-width: 725px;
   }
 }

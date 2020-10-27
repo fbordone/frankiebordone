@@ -33,6 +33,13 @@ class Endpoints {
             'callback' => [$this, 'get_home_acf'],
             'permission_callback' => '__return_true',
         ]);
+
+        // expose resume page related ACF data to custom endpoint called 'resume'
+        register_rest_route($this->namespace, 'resume', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_resume_acf'],
+            'permission_callback' => '__return_true',
+        ]);
     }
 
     /*
@@ -88,6 +95,30 @@ class Endpoints {
         }
 
         return $home_acf_data;
+    }
+
+    /*
+     * Helper function for custom endpoint 'resume'
+     */
+    public function get_resume_acf() {
+        $resume_acf_data = [];
+        $resume_page_id = get_field('options__resume_page_id', 'option');
+
+        if ($resume__skills_title = get_field('resume__skills_title', $resume_page_id)) {
+            $resume_acf_data = [
+                'skills_title' => $resume__skills_title
+            ];
+        }
+
+        if ($resume_skills_copy = get_field('resume__skills_copy', $resume_page_id)) {
+            $resume_acf_data['skills_copy'] = $resume_skills_copy;
+        }
+
+        if ($resume_timeline_title = get_field('resume__timeline_title', $resume_page_id)) {
+            $resume_acf_data['timeline_title'] = $resume_timeline_title;
+        }
+
+        return $resume_acf_data;
     }
 }
 

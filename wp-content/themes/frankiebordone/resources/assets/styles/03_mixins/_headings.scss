@@ -11,6 +11,7 @@
 /************ Placeholder selector for setting defaults ************/
 %heading {
   margin: 0;
+  color: c(white);
 }
 
 /************ Heading definitions ************/
@@ -23,7 +24,6 @@
 
   font-size: $font-size-h1--mobile;
   line-height: 50px;
-  color: c(white);
 
   @include min-width($_tablet-960px-breakpoint) {
     font-size: $font-size-h1--desktop;
@@ -39,7 +39,29 @@
 @mixin h2( $context: $font-size-base ) {
   @extend %heading;
 
-  font-size: em($font-size-h2, $context);
+  position: relative;
+  font-size: $font-size-h2--mobile;
+  line-height: 46px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: $font-size-h2--desktop;
+    line-height: 53px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100px;
+    background-color: c(blue);
+    border-radius: 100px;
+  }
 }
 
 /**
