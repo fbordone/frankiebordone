@@ -15,22 +15,14 @@
 }
 
 .home__title {
-  font-size: 42px;
-  line-height: 50px;
-  letter-spacing: unset;
-  color: c(white);
   margin-bottom: 10px;
 
   @include min-width($_tablet-960px-breakpoint) {
-    font-size: 52px;
-    line-height: 64px;
-    margin-bottom: 13px;
+    margin-bottom: 15px;
   }
 }
 
 .home__tagline {
-  font-size: 18px;
-  line-height: 27px;
   max-width: 600px;
   margin: 0 auto;
 
@@ -43,30 +35,5 @@
 
 .home__btn {
   @include button;
-  @include font-family((type: default, weight: normal));
-  font-size: 15px;
-  letter-spacing: 1.5px;
-  line-height: 45px;
-  padding: 0 27px;
   margin-top: 20px;
-  height: 45px;
-  background-color: c(blue);
-
-  &::before {
-    content: '';
-    @include position(absolute, (top: auto, bottom: 0, left: 0));
-    @include transition((properties: all));
-    height: 2px;
-    width: 100%;
-    background-color: c(white);
-    z-index: z(hidden);
-    transform: scaleX(0);
-    transform-origin: 0 0;
-  }
-
-  &:hover {
-    &::before {
-      transform: scaleX(1);
-    }
-  }
 }

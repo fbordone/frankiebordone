@@ -17,7 +17,7 @@
   // merge default arguments
   $conf: map-merge(
     (
-      bg: c(black),
+      bg: c(blue),
       color: c(white),
       // override default font size (in px)
       size: $font-size-button
@@ -46,17 +46,42 @@
   // other default button styles
   cursor: pointer;
   // font-family is hard-coded as @font-family mixin may or may not be available yet
-  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-  font-size: em($font-size-button, $font-size-base);
-  letter-spacing: em(2, $context);
+  @include font-family((type: default, weight: normal));
+  font-size: $font-size-button;
+  letter-spacing: 1.5px;
   position: relative;
   z-index: 1;
   display: inline-block;
   text-transform: uppercase;
-  padding: em(22px, $context) em(30px, $context) em(20px, $context);
-  line-height: 1;
+  padding: 0 27px;
+  line-height: 45px;
+  height: 45px;
   text-align: center;
   overflow: hidden;
   border: none;
   border-radius: 0;
+
+  &::before {
+    content: '';
+    @include transition((properties: all));
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: c(white);
+    z-index: z(hidden);
+    transform: scaleX(0);
+    transform-origin: 0 0;
+  }
+
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  // allow overrides
+  @content;
 }

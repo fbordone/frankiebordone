@@ -101,19 +101,20 @@ $z-layers: (
 /*
  * Typography
  */
-$font-size-base: 16px;
-$font-line-height: 1.95;
-$font-size-typescale: 1.25;
+$font-size-base: 18px;
+$font-line-height: 1.6;
 
 /*
  * Headings
  */
 $font-size-h6: $font-size-base;
-$font-size-h5: $font-size-h6 * $font-size-typescale;
-$font-size-h4: $font-size-h5 * $font-size-typescale;
-$font-size-h3: $font-size-h4 * $font-size-typescale;
-$font-size-h2: $font-size-h3 * $font-size-typescale;
-$font-size-h1: $font-size-h2 * $font-size-typescale;
+$font-size-h5: $font-size-h6;
+$font-size-h4: $font-size-h5;
+$font-size-h3: $font-size-h4;
+$font-size-h2: $font-size-h3;
+
+$font-size-h1--mobile: 42px;
+$font-size-h1--desktop: 52px;
 
 /*
  * Buttons

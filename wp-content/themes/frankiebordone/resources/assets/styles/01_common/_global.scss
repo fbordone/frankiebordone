@@ -99,7 +99,13 @@ a:visited {
  * Paragraphs
  */
 p {
+  font-size: 16px;
+  line-height: 28px;
   margin: 0;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: $font-size-base;
+  }
 }
 
 /*
