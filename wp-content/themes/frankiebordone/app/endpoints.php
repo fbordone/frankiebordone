@@ -104,19 +104,15 @@ class Endpoints {
         $resume_acf_data = [];
         $resume_page_id = get_field('options__resume_page_id', 'option');
 
-        if ($resume__skills_title = get_field('resume__skills_title', $resume_page_id)) {
-            $resume_acf_data = [
-                'skills_title' => $resume__skills_title
-            ];
-        }
+        $skills['title'] = get_field('resume__skills_title', $resume_page_id);
+        $skills['copy'] = get_field('resume__skills_copy', $resume_page_id);
 
-        if ($resume_skills_copy = get_field('resume__skills_copy', $resume_page_id)) {
-            $resume_acf_data['skills_copy'] = $resume_skills_copy;
-        }
+        $timeline['title'] = get_field('resume__timeline_title', $resume_page_id);
+        $timeline['cta'] = get_field('resume__timeline_cta', $resume_page_id);
+        $timeline['events'] = get_field('resume__timeline', $resume_page_id);
 
-        if ($resume_timeline_title = get_field('resume__timeline_title', $resume_page_id)) {
-            $resume_acf_data['timeline_title'] = $resume_timeline_title;
-        }
+        $resume_acf_data['skills'] = $skills;
+        $resume_acf_data['timeline'] = $timeline;
 
         return $resume_acf_data;
     }

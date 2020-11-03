@@ -30,7 +30,7 @@
   }
 }
 
-.resume__skills_title {
+.resume__section_title {
   margin-bottom: 40px;
 }
 
@@ -72,5 +72,70 @@
         line-height: 35px;
       }
     }
+  }
+}
+
+.resume__timeline_btn {
+  @include button;
+}
+
+.resume__timeline_events_title {
+  margin: 60px 0 30px 0;
+}
+
+.resume__timeline_event_wrap {
+  border-left: 2px solid c(blue);
+  padding-left: 15px;
+}
+
+.resume__timeline_event {
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.resume__timeline_event_year {
+  position: relative;
+  font-size: 14px;
+  line-height: 14px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &::before {
+    content: '•';
+    @include position(absolute, (left: -22.5px));
+    font-size: 25px;
+    color: c(blue);
+  }
+}
+
+.resume__timeline_event_title {
+  font-size: 17px;
+  line-height: 17px;
+  margin: 5px 0;
+  font-weight: bold;
+  color: c(white);
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 22px;
+    line-height: 22px;
+    margin: 7px 0;
+  }
+}
+
+.resume__timeline_event_subtitle {
+  font-size: 15px;
+  line-height: 15px;
+  font-style: italic;
+  margin-bottom: 20px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 17px;
+    line-height: 17px;
   }
 }
