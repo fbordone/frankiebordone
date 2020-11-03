@@ -1,0 +1,141 @@
+/* ==============================================================================================
+// RESUME COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Resume.js`
+================================================================================================= */
+
+.resume {
+  min-height: 100vh;
+}
+
+.resume__skills_wrap,
+.resume__timeline_wrap {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+
+  @include min-width($_mobile-480px-breakpoint) {
+    max-width: 540px;
+  }
+
+  @include min-width($_tablet-800px-breakpoint) {
+    max-width: 720px;
+  }
+
+  @include min-width($_tablet-960px-breakpoint) {
+    max-width: 960px;
+  }
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    max-width: 1120px;
+  }
+}
+
+.resume__section_title {
+  margin-bottom: 40px;
+}
+
+.resume__skills_copy {
+  p + p {
+    margin-top: 25px;
+  }
+
+  .resume__skills_copy_list {
+    @include flex-container((direction: column, align: flex-start));
+    margin-top: 25px;
+
+    @include min-width($_tablet-800px-breakpoint) {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+
+      & + ul {
+        @include min-width($_tablet-800px-breakpoint) {
+          margin-left: 25px;
+        }
+
+        @include min-width($_tablet-960px-breakpoint) {
+          margin-left: 75px;
+        }
+      }
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 30px;
+
+      @include min-width($_tablet-960px-breakpoint) {
+        font-size: 20px;
+        line-height: 35px;
+      }
+    }
+  }
+}
+
+.resume__timeline_btn {
+  @include button;
+}
+
+.resume__timeline_events_title {
+  margin: 60px 0 30px 0;
+}
+
+.resume__timeline_event_wrap {
+  border-left: 2px solid c(blue);
+  padding-left: 15px;
+}
+
+.resume__timeline_event {
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.resume__timeline_event_year {
+  position: relative;
+  font-size: 14px;
+  line-height: 14px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &::before {
+    content: '•';
+    @include position(absolute, (left: -22.5px));
+    font-size: 25px;
+    color: c(blue);
+  }
+}
+
+.resume__timeline_event_title {
+  font-size: 17px;
+  line-height: 17px;
+  margin: 5px 0;
+  font-weight: bold;
+  color: c(white);
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 22px;
+    line-height: 22px;
+    margin: 7px 0;
+  }
+}
+
+.resume__timeline_event_subtitle {
+  font-size: 15px;
+  line-height: 15px;
+  font-style: italic;
+  margin-bottom: 20px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: 17px;
+    line-height: 17px;
+  }
+}

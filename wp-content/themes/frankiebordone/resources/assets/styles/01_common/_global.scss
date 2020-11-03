@@ -104,7 +104,8 @@ p {
   margin: 0;
 
   @include min-width($_tablet-960px-breakpoint) {
-    font-size: $font-size-base;
+    font-size: 20px;
+    line-height: 32px;
   }
 }
 
@@ -166,4 +167,23 @@ textarea {
   @include transition((properties: all));
   visibility: hidden;
   opacity: 0;
+}
+
+/*
+ * Padding helpers
+ */
+.padding-top {
+  padding-top: 80px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    padding-top: 120px;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: 80px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    padding-bottom: 120px;
+  }
 }
