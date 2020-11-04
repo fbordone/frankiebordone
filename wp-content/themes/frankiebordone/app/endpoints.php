@@ -40,6 +40,13 @@ class Endpoints {
             'callback' => [$this, 'get_resume_acf'],
             'permission_callback' => '__return_true',
         ]);
+
+        // expose projects page related ACF data to custom endpoint called 'projects'
+        register_rest_route($this->namespace, 'projects', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_projects_acf'],
+            'permission_callback' => '__return_true',
+        ]);
     }
 
     /*
@@ -115,6 +122,27 @@ class Endpoints {
         $resume_acf_data['timeline'] = $timeline;
 
         return $resume_acf_data;
+    }
+
+    /*
+     * Helper function for custom endpoint 'projects'
+     */
+    public function get_projects_acf() {
+        $projects_acf_data = [];
+        $projects_page_id = get_field('options__projects_page_id', 'option');
+        $projects_list = get_field('projects__list', $projects_page_id);
+
+        foreach ($projects_list as $project_id) {
+            $projects_acf_data[] = [
+                'ID' => $project_id,
+                'image' => get_the_post_thumbnail_url($project_id),
+                'link' => get_field('project__link', $project_id),
+                'title' => get_the_title($project_id),
+                'tagline' => get_field('project__tagline', $project_id),
+            ];
+        }
+
+        return $projects_acf_data;
     }
 }
 

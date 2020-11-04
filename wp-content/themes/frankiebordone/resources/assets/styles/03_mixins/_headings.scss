@@ -99,7 +99,13 @@
 @mixin h4( $context: $font-size-base ) {
   @extend %heading;
 
-  font-size: em($font-size-h4, $context);
+  font-size: $font-size-h4--mobile;
+  line-height: 25px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    font-size: $font-size-h4--desktop;
+    line-height: 20px;
+  }
 }
 
 /**

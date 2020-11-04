@@ -96,6 +96,42 @@ add_action('after_setup_theme', function () {
 }, 20);
 
 /**
+ * Register custom post types
+ * @link https://codex.wordpress.org/Function_Reference/register_post_type
+ */
+add_action('init', function() {
+    // Projects
+    $args = [
+        'labels' => [
+            'name' => __('Projects', 'frankiebordone'),
+            'singular_name' => __('Project', 'frankiebordone'),
+            'add_new_item' => __('Add New Project', 'frankiebordone'),
+            'edit_item' => __('Edit Project', 'frankiebordone'),
+            'new_item' => __('New Project', 'frankiebordone'),
+            'view_item' => __('View Project', 'frankiebordone'),
+            'view_items' => __('View Projects', 'frankiebordone'),
+            'search_items' => __('Search Projects', 'frankiebordone'),
+            'not_found' => __('No Projects Found', 'frankiebordone'),
+            'not_found_in_trash' => __('No Projects Found In Trash', 'frankiebordone'),
+            'all_items' => __('All Projects', 'frankiebordone'),
+            'archives' => __('Project Archives', 'frankiebordone'),
+            'attributes' => __('Project Attributes', 'frankiebordone'),
+            'filter_items_list' => __('Filter Projects List', 'frankiebordone'),
+            'items_list' => __('Projects List', 'frankiebordone'),
+        ],
+        'public' => true,
+        'menu_icon' => 'dashicons-portfolio',
+        'show_in_rest' => true,
+        'supports' => ['title', 'thumbnail'],
+        'has_archive' => true,
+        'rewrite' => ['slug' => 'projects'],
+        'query_var' => 'project',
+    ];
+
+    register_post_type('project', $args);
+});
+
+/**
  * Updates the `$post` variable on each iteration of the loop.
  * Note: updated value is only available for subsequently loaded views, such as partials
  */
