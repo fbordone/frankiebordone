@@ -1,0 +1,80 @@
+/* ==============================================================================================
+// PROJECTS COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Projects.js`
+================================================================================================= */
+
+.projects {
+  min-height: 100vh;
+}
+
+.projects__wrap {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+
+  @include min-width($_tablet-800px-breakpoint) {
+    max-width: 720px;
+  }
+
+  @include min-width($_tablet-960px-breakpoint) {
+    max-width: 960px;
+  }
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    max-width: 1120px;
+  }
+}
+
+.projects__section_title {
+  margin-bottom: 40px;
+}
+
+.projects__grid {
+  @include flex-container((wrap: wrap, justify: flex-start, align: flex-start));
+}
+
+.projects__grid_card {
+  width: 100%;
+  margin-bottom: em(50);
+
+  @include min-width($_mobile-640px-breakpoint) {
+    width: 50%;
+    padding-right: em(30);
+  }
+
+  @include min-width($_tablet-960px-breakpoint) {
+    width: 33.33%;
+  }
+}
+
+.projects__grid_card_img {
+  @include transition((properties: (transform)));
+
+  &:hover,
+  &:focus {
+    @include transition((properties: (transform)));
+    transform: scale(1.02);
+  }
+}
+
+.projects__grid_card_title {
+  @include transition((properties: (color)));
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+  @include min-width($_tablet-960px-breakpoint) {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    @include transition((properties: (color)));
+    color: c(blue);
+  }
+}
+
+.projects__grid_card_copy {
+  font-size: 18px;
+  line-height: 25px;
+}
