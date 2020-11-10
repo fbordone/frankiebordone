@@ -3,6 +3,14 @@
 namespace App;
 
 class Endpoints {
+    const CONTACT_FORM_EMAIL = '
+    Hello Frankie,
+
+    Full Name: %s
+    Email Address: %s
+    Message: %s
+    ';
+
     protected $namespace = 'wp/v2';
 
     public function __construct() {
@@ -45,6 +53,20 @@ class Endpoints {
         register_rest_route($this->namespace, 'projects', [
             'methods' => 'GET',
             'callback' => [$this, 'get_projects_acf'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        // expose contact page related ACF data to custom endpoint called 'contact'
+        register_rest_route($this->namespace, 'contact', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_contact_acf'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        // expose custom endpoint called 'contact_form_email' that sends an email on successful form submission
+        register_rest_route($this->namespace, 'contact_form_email', [
+            'methods' => 'POST',
+            'callback' => [$this, 'send_contact_form_email'],
             'permission_callback' => '__return_true',
         ]);
     }
@@ -143,6 +165,51 @@ class Endpoints {
         }
 
         return $projects_acf_data;
+    }
+
+    /*
+     * Helper function for custom endpoint 'contact'
+     */
+    public function get_contact_acf() {
+        $contact_acf_data = [];
+        $contact_page_id = get_field('options__contact_page_id', 'option');
+
+        if ($contact_copy = get_field('contact__copy', $contact_page_id)) {
+            $contact_acf_data = [
+                'copy' => $contact_copy
+            ];
+        }
+
+        return $contact_acf_data;
+    }
+
+    /*
+     * Helper function for custom endpoint 'contact_form_email'
+     */
+    public function send_contact_form_email(\WP_REST_Request $request) {
+        $to = 'bordone.francesco@gmail.com';
+        $subject = 'Inquiry - frankiebordone.com';
+        $headers = ['Content-Type: text/html; charset=UTF-8'];
+
+        $params = $request->get_body_params();
+
+        if (empty($name = $params['name'])) {
+            return ['message' => 'The name was not sent in the request', 'status' => 400];
+        }
+
+        if (empty($email = $params['email'])) {
+            return ['message' => 'The email was not sent in the request', 'status' => 400];
+        }
+
+        if (empty($message = $params['message'])) {
+            return ['message' => 'The message was not sent in the request', 'status' => 400];
+        }
+
+        if ($result = wp_mail($to, $subject, sprintf(static::CONTACT_FORM_EMAIL, $name, $email, $message), $headers)) {
+            return ['message' => 'Successful form submission', 'status' => 200];
+        } else {
+            return ['message' => 'Failed form submission', 'status' => 400];
+        }
     }
 }
 

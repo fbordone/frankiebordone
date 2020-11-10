@@ -1,0 +1,115 @@
+/* ==============================================================================================
+// CONTACT COMPONENT STYLES
+// SEE `/../resources/assets/scripts/react/components/Contact.js`
+================================================================================================= */
+
+.contact {
+  min-height: 100vh;
+}
+
+.contact__wrap {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+
+  @include min-width($_tablet-800px-breakpoint) {
+    max-width: 720px;
+  }
+
+  @include min-width($_tablet-960px-breakpoint) {
+    max-width: 960px;
+  }
+
+  @include min-width($_tablet-1120px-breakpoint) {
+    max-width: 1120px;
+  }
+}
+
+.contact__section_title {
+  margin-bottom: 40px;
+}
+
+.contact__content {
+  p + p {
+    margin-top: 25px;
+  }
+}
+
+.contact__form--visible {
+  display: block;
+  max-width: 700px;
+}
+
+.contact__form--hidden {
+  display: none;
+}
+
+.contact__form_group {
+  margin-top: 30px;
+
+  input,
+  textarea {
+    font-size: 16px;
+    border: 2px solid c(blue, light);
+    padding: 0 15px;
+    width: 100%;
+    background-color: unset;
+    color: c(blue, lighter);
+
+    &::placeholder {
+      color: c(blue, lighter);
+    }
+  }
+
+  input {
+    height: 45px;
+  }
+
+  textarea {
+    padding-top: 10px;
+    resize: vertical;
+  }
+}
+
+.contact__form_error {
+  font-size: 16px;
+  color: #f03;
+}
+
+.contact__form_submit {
+  @include button;
+  margin-top: 20px;
+
+  &::before {
+    content: '';
+    @include transition((properties: all));
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: c(white);
+    z-index: z(hidden);
+    transform: scaleX(0);
+    transform-origin: 0 0;
+  }
+
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.contact__success {
+  max-width: 700px;
+  background-color: c(blue);
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.contact__success_copy {
+  color: c(white);
+}
