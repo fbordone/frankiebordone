@@ -1,6 +1,6 @@
 # FrankieBordone
 
-My personal portfolio website, built with React and a headless WordPress CMS
+My personal portfolio website, built with React and a headless WordPress CMS. See at https://frankiebordone.com/
 
 This website is built on the WordPress CMS platform, and is using a modified version of the modern [Sage starter theme](https://roots.io/sage/). We are currently using `v9.0.9`.
 
