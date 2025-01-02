@@ -11,8 +11,6 @@ This is the first iteration of my personal portfolio website, built with a React
 
 This website is powered by WordPress as the CMS and uses a modified version of the modern [Sage Starter Theme](https://roots.io/sage/) for the theme foundation. The project incorporates advanced tools and frameworks to provide a seamless and responsive user experience.
 
----
-
 ## Server/Environment Requisites
 
 - [WordPress](https://wordpress.org/) >= 5.1
@@ -56,8 +54,6 @@ themes/frankiebordone/         # → Root of Sage based theme
 └── vendor/                    # → Composer packages (never edit)
 ```
 
----
-
 ## Theme Development
 
 1. Spin up your local development server (via Vagrant/VVV, etc.).
@@ -72,8 +68,6 @@ themes/frankiebordone/         # → Root of Sage based theme
     - `yarn start` — Compile assets when file changes are made, start Browsersync session
     - `yarn build` — Compile and optimize the files in your assets directory
     - `yarn build:production` — Compile assets for production
-  
----
 
 ## Documentation
 
@@ -81,13 +75,9 @@ If you have questions about how the Sage theme works under the hood, these two r
 - [Sage theme documentation](https://roots.io/sage/docs/)
 - [Controller documentation](https://github.com/soberwp/controller#usage)
 
----
-
 ## Transition to Version 2
 
 The second iteration of my portfolio website ((v2))[https://frankiebordone.com/] is now live, focusing on a Gutenberg-based approach for enhanced customization and functionality. This project serves as an archival reference for my earlier work.
-
----
 
 ## Get in Touch
 Feel free to explore this repository and reach out with any questions, feedback, or collaboration opportunities!
