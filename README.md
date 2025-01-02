@@ -73,7 +73,7 @@ If you have questions about how the Sage theme works under the hood, these two r
 
 ## Transition to Version 2
 
-The second iteration of my portfolio website ((v2))[https://frankiebordone.com/] is now live, focusing on a Gutenberg-based approach for enhanced customization and functionality. This project serves as an archival reference for my earlier work.
+The second iteration of my portfolio website (v2)[https://frankiebordone.com/] is now live, focusing on a Gutenberg-based approach for enhanced customization and functionality. This project serves as an archival reference for my earlier work.
 
 ## Get in Touch
 Feel free to explore this repository and reach out with any questions, feedback, or collaboration opportunities!
