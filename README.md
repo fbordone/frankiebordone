@@ -1,17 +1,29 @@
-# FrankieBordone
+# Frankie Bordone's Personal Portfolio Website (v1)
 
-My personal portfolio website, built with React and a headless WordPress CMS. See at https://frankiebordone.com/
+This is the first iteration of my personal portfolio website, built with a React frontend and a headless WordPress CMS. This project demonstrates foundational skills in modern JavaScript frameworks, REST API integration, and custom WordPress development.
 
-This website is built on the WordPress CMS platform, and is using a modified version of the modern [Sage starter theme](https://roots.io/sage/). We are currently using `v9.0.9`.
+> ⚠️ **Deprecated as of 01/01/2025:**  
+> This version is no longer live, as it has been replaced by the second iteration of my website. You can view the new version [here](https://frankiebordone.com/), as well as the source code [here](https://github.com/fbordone/frankiebordone-v2/).
 
-### Server/environment requisites:
-* [WordPress](https://wordpress.org/) >= 5.1
-* [PHP](https://secure.php.net/manual/en/install.php) >= 7.2 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
-* [Composer](https://getcomposer.org/download/)
-* [Node.js](http://nodejs.org/) >= 10.0.0
-* [Yarn](https://yarnpkg.com/en/docs/install)
+---
 
-### Theme structure
+## Project Overview
+
+This website is powered by WordPress as the CMS and uses a modified version of the modern [Sage Starter Theme](https://roots.io/sage/) for the theme foundation. The project incorporates advanced tools and frameworks to provide a seamless and responsive user experience.
+
+---
+
+## Server/Environment Requisites
+
+- [WordPress](https://wordpress.org/) >= 5.1
+- [PHP](https://secure.php.net/manual/en/install.php) >= 7.2 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
+- [Composer](https://getcomposer.org/download/)
+- [Node.js](http://nodejs.org/) >= 10.0.0
+- [Yarn](https://yarnpkg.com/en/docs/install)
+
+---
+
+## Theme Structure
 
 ```shell
 themes/frankiebordone/         # → Root of Sage based theme
@@ -44,7 +56,9 @@ themes/frankiebordone/         # → Root of Sage based theme
 └── vendor/                    # → Composer packages (never edit)
 ```
 
-### Theme development
+---
+
+## Theme Development
 
 1. Spin up your local development server (via Vagrant/VVV, etc.).
 2. Navigate to the `[theme-name-here]` theme directory, and run:
@@ -58,9 +72,25 @@ themes/frankiebordone/         # → Root of Sage based theme
     - `yarn start` — Compile assets when file changes are made, start Browsersync session
     - `yarn build` — Compile and optimize the files in your assets directory
     - `yarn build:production` — Compile assets for production
+  
+---
 
-### Documentation
+## Documentation
 
 If you have questions about how the Sage theme works under the hood, these two resources will serve as great reference:
 - [Sage theme documentation](https://roots.io/sage/docs/)
 - [Controller documentation](https://github.com/soberwp/controller#usage)
+
+---
+
+## Transition to Version 2
+
+The second iteration of my portfolio website ((v2))[https://frankiebordone.com/] is now live, focusing on a Gutenberg-based approach for enhanced customization and functionality. This project serves as an archival reference for my earlier work.
+
+---
+
+## Get in Touch
+Feel free to explore this repository and reach out with any questions, feedback, or collaboration opportunities!
+- **Website**: [https://frankiebordone.com/](https://frankiebordone.com)
+- **LinkedIn**: [https://www.linkedin.com/in/francescobordone/](https://www.linkedin.com/in/francescobordone/)
+- **GitHub**: [https://github.com/fbordone](https://github.com/fbordone)
