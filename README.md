@@ -5,8 +5,6 @@ This is the first iteration of my personal portfolio website, built with a React
 > ⚠️ **Deprecated as of 01/01/2025:**  
 > This version is no longer live, as it has been replaced by the second iteration of my website. You can view the new version [here](https://frankiebordone.com/), as well as the source code [here](https://github.com/fbordone/frankiebordone-v2/).
 
----
-
 ## Project Overview
 
 This website is powered by WordPress as the CMS and uses a modified version of the modern [Sage Starter Theme](https://roots.io/sage/) for the theme foundation. The project incorporates advanced tools and frameworks to provide a seamless and responsive user experience.
@@ -18,8 +16,6 @@ This website is powered by WordPress as the CMS and uses a modified version of t
 - [Composer](https://getcomposer.org/download/)
 - [Node.js](http://nodejs.org/) >= 10.0.0
 - [Yarn](https://yarnpkg.com/en/docs/install)
-
----
 
 ## Theme Structure
 
